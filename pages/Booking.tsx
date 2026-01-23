@@ -37,7 +37,7 @@ const Booking: React.FC = () => {
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="font-cinzel text-3xl md:text-5xl tracking-[0.4em] mb-6 uppercase"
+          className="font-cinzel text-3xl md:text-5xl tracking-[0.4em] mb-6 uppercase text-white"
         >
           THANK YOU
         </motion.h2>
@@ -45,7 +45,7 @@ const Booking: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="font-inter text-gray-400 tracking-[0.2em] uppercase text-[10px] md:text-xs"
+          className="font-inter text-white tracking-[0.2em] uppercase text-[10px] md:text-xs"
         >
           Your inquiry has been received. We will be in touch shortly.
         </motion.p>
@@ -54,7 +54,7 @@ const Booking: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
           onClick={() => setSubmitted(false)} 
-          className="mt-12 font-cinzel text-[10px] tracking-[0.3em] uppercase border border-white/20 px-10 py-4 hover:bg-white hover:text-black transition-all"
+          className="mt-12 font-cinzel text-[10px] tracking-[0.3em] uppercase border border-white px-10 py-4 hover:bg-white hover:text-black transition-all text-white"
         >
           RETURN
         </motion.button>
@@ -63,8 +63,8 @@ const Booking: React.FC = () => {
   }
 
   // Simplified style with pure white placeholders
-  const inputClasses = "w-full bg-transparent border-b border-zinc-800 py-4 font-cinzel tracking-widest text-sm focus:outline-none focus:border-white transition-colors placeholder:text-white placeholder:opacity-100 placeholder:font-inter placeholder:text-[10px]";
-  const labelClasses = "font-inter text-[9px] tracking-[0.4em] text-zinc-500 uppercase block mb-2";
+  const inputClasses = "w-full bg-transparent border-b border-white/20 py-4 font-cinzel tracking-widest text-sm focus:outline-none focus:border-white transition-colors placeholder:text-white placeholder:opacity-100 placeholder:font-inter placeholder:text-[10px] text-white";
+  const labelClasses = "font-inter text-[9px] tracking-[0.4em] text-white uppercase block mb-2";
 
   return (
     <>
@@ -81,9 +81,9 @@ const Booking: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="mb-20 text-center"
           >
-            <span className="font-inter text-[10px] tracking-[0.6em] text-zinc-500 uppercase block mb-4">INQUIRY FORM</span>
-            <h1 className="font-cinzel text-4xl md:text-7xl tracking-tighter uppercase">
-              LET'S <span className="italic opacity-50">CREATE</span>
+            <span className="font-inter text-[10px] tracking-[0.6em] text-white uppercase block mb-4">INQUIRY FORM</span>
+            <h1 className="font-cinzel text-4xl md:text-7xl tracking-tighter uppercase text-white">
+              LET'S <span className="italic opacity-80">CREATE</span>
             </h1>
           </motion.div>
 
@@ -125,13 +125,13 @@ const Booking: React.FC = () => {
             </div>
 
             <div>
-              <label className={labelClasses}>TELL US MORE</label>
-              <textarea 
-                name="message" 
-                rows={4} 
+              <label className={labelClasses}>LOCATION</label>
+              <input 
+                type="text"
+                name="location" 
                 required 
-                placeholder="DESCRIBE YOUR CINEMATIC VISION..." 
-                className={`${inputClasses} border border-zinc-900 px-4 focus:bg-zinc-950/50 mt-4`}
+                placeholder="WHERE IS THE PROJECT LOCATED?" 
+                className={inputClasses}
               />
             </div>
 

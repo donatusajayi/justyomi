@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -36,41 +35,41 @@ const About: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           <header className="text-center mb-32 md:mb-48">
             <motion.span 
-              initial={{ letterSpacing: "0.2em", opacity: 0 }} animate={{ letterSpacing: "0.6em", opacity: 0.5 }}
-              className="font-inter text-[10px] md:text-xs uppercase mb-8 block"
+              initial={{ letterSpacing: "0.2em", opacity: 0 }} animate={{ letterSpacing: "0.6em", opacity: 0.8 }}
+              className="font-inter text-[10px] md:text-xs uppercase mb-8 block text-white"
             >
               OUR MANIFESTO
             </motion.span>
-            <h1 className="font-cinzel text-4xl md:text-7xl lg:text-8xl tracking-[0.1em] leading-tight mb-12">
-              CRAFTING <span className="italic opacity-80">LIGHT</span> <br />
+            <h1 className="font-cinzel text-4xl md:text-7xl lg:text-8xl tracking-[0.1em] leading-tight mb-12 text-white">
+              CRAFTING <span className="italic opacity-90 text-white">LIGHT</span> <br />
               & SHADOW
             </h1>
             <div className="w-[1px] h-24 bg-gradient-to-b from-white to-transparent mx-auto" />
           </header>
 
           <section className="max-w-3xl mx-auto text-center mb-40 md:mb-60">
-            <h2 className="font-cinzel text-xl md:text-2xl tracking-[0.3em] uppercase mb-12 text-gray-300">The Vision</h2>
-            <p className="font-inter text-lg md:text-2xl text-gray-400 leading-relaxed font-light">
-              DYNAMIC YOMI FILMS is more than a production house. It is a pursuit of <span className="text-white">visual majesty</span>. We believe every frame is a canvas, and every story deserves the weight of cinema. 
+            <h2 className="font-cinzel text-xl md:text-2xl tracking-[0.3em] uppercase mb-12 text-white">The Vision</h2>
+            <p className="font-inter text-lg md:text-2xl text-white/90 leading-relaxed font-light">
+              DYNAMIC YOMI FILMS is more than a production house. It is a pursuit of <span className="text-white font-bold">visual majesty</span>. We believe every frame is a canvas, and every story deserves the weight of cinema. 
             </p>
-            <blockquote className="font-inter text-gray-500 mt-10 text-sm md:text-lg leading-relaxed max-w-2xl mx-auto italic">
+            <blockquote className="font-inter text-white/70 mt-10 text-sm md:text-lg leading-relaxed max-w-2xl mx-auto italic">
               "We don't just record events; we curate memories into high-fidelity art that stands the test of time."
             </blockquote>
-            <div className="mt-16 font-cinzel tracking-widest text-xs text-white opacity-40">
+            <div className="mt-16 font-cinzel tracking-widest text-xs text-white opacity-60">
               — DIRECTOR YOMI
             </div>
           </section>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20 mb-40 md:mb-60">
              <section className="space-y-8">
-               <h3 className="font-cinzel text-lg tracking-[0.3em] uppercase border-b border-zinc-900 pb-4">Our Philosophy</h3>
-               <p className="font-inter text-gray-500 text-sm md:text-base leading-relaxed">
+               <h3 className="font-cinzel text-lg tracking-[0.3em] uppercase border-b border-white/10 pb-4 text-white">Our Philosophy</h3>
+               <p className="font-inter text-white/80 text-sm md:text-base leading-relaxed">
                  Based in Dallas, Texas and operating globally, our approach is defined by intentionality. We utilize the latest in cinema technology—not for the sake of specs, but to serve the emotional truth of the moment. 
                </p>
              </section>
              <section className="space-y-8">
-               <h3 className="font-cinzel text-lg tracking-[0.3em] uppercase border-b border-zinc-900 pb-4">The Standard</h3>
-               <p className="font-inter text-gray-500 text-sm md:text-base leading-relaxed">
+               <h3 className="font-cinzel text-lg tracking-[0.3em] uppercase border-b border-white/10 pb-4 text-white">The Standard</h3>
+               <p className="font-inter text-white/80 text-sm md:text-base leading-relaxed">
                  From the first consultation to the final color grade, excellence is non-negotiable. We offer a bespoke experience tailored to couples and brands who demand the extraordinary.
                </p>
              </section>
@@ -78,24 +77,24 @@ const About: React.FC = () => {
 
           <motion.section variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-40">
             <div className="flex items-center gap-6 mb-20">
-              <h2 className="font-cinzel text-xl md:text-3xl tracking-[0.4em] uppercase">SERVICES</h2>
-              <div className="flex-grow h-[1px] bg-zinc-900" />
+              <h2 className="font-cinzel text-xl md:text-3xl tracking-[0.4em] uppercase text-white">SERVICES</h2>
+              <div className="flex-grow h-[1px] bg-white/10" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20">
               {services.map((service) => (
-                <div key={service.id} className="group relative border-t border-zinc-900 pt-8 hover:border-white transition-colors duration-700">
-                  <span className="font-cinzel text-[10px] text-zinc-600 group-hover:text-white transition-colors block mb-4">{service.id}</span>
+                <div key={service.id} className="group relative border-t border-white/10 pt-8 hover:border-white transition-colors duration-700">
+                  <span className="font-cinzel text-[10px] text-white/60 group-hover:text-white transition-colors block mb-4">{service.id}</span>
                   <h3 className="font-cinzel text-sm md:text-base tracking-[0.2em] text-white mb-4 group-hover:translate-x-2 transition-transform duration-500">{service.title}</h3>
-                  <p className="font-inter text-[11px] md:text-xs text-gray-500 leading-relaxed uppercase tracking-wider">{service.desc}</p>
+                  <p className="font-inter text-[11px] md:text-xs text-white/70 leading-relaxed uppercase tracking-wider">{service.desc}</p>
                 </div>
               ))}
             </div>
           </motion.section>
 
-          <section className="text-center pt-20 border-t border-zinc-900">
-            <h2 className="font-cinzel text-lg md:text-2xl tracking-[0.2em] mb-12">READY TO TELL YOUR STORY?</h2>
-            <Link to="/booking" className="inline-block font-cinzel text-xs tracking-[0.4em] border border-white px-12 py-5 hover:bg-white hover:text-black transition-all duration-500">
+          <section className="text-center pt-20 border-t border-white/10">
+            <h2 className="font-cinzel text-lg md:text-2xl tracking-[0.2em] mb-12 text-white">READY TO TELL YOUR STORY?</h2>
+            <Link to="/booking" className="inline-block font-cinzel text-xs tracking-[0.4em] border border-white px-12 py-5 hover:bg-white hover:text-black transition-all duration-500 text-white">
               START THE PROJECT
             </Link>
           </section>

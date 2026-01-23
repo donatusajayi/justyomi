@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, LayoutGroup } from 'framer-motion';
 import { Play, Maximize2, ArrowRight, X, Youtube, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+// Fix: Added missing Link import
+import { Link } from 'react-router-dom';
 
 interface Work {
   id: number;
@@ -60,12 +62,12 @@ const VideoModal = ({ work, onClose }: { work: Work; onClose: () => void }) => {
         
         <div className="absolute top-0 left-0 w-full p-4 flex justify-between items-start pointer-events-none bg-gradient-to-b from-black/80 to-transparent">
           <div className="space-y-1">
-            <span className="font-inter text-[8px] tracking-[0.4em] text-white/40 uppercase block">NOW PLAYING</span>
+            <span className="font-inter text-[8px] tracking-[0.4em] text-white/80 uppercase block">NOW PLAYING</span>
             <h4 className="font-cinzel text-xs md:text-sm tracking-[0.2em] text-white uppercase">{work.title}</h4>
           </div>
           <button 
             onClick={onClose}
-            className="pointer-events-auto p-2 text-white/50 hover:text-white hover:rotate-90 transition-all duration-500"
+            className="pointer-events-auto p-2 text-white/80 hover:text-white hover:rotate-90 transition-all duration-500"
             aria-label="Close video player"
           >
             <X size={24} strokeWidth={1.5} />
@@ -111,12 +113,12 @@ const Lightbox = ({
     >
       <div className="absolute top-8 left-8 right-8 flex justify-between items-start pointer-events-none z-10">
         <div className="space-y-1">
-          <span className="font-inter text-[8px] tracking-[0.4em] text-white/40 uppercase block">STILL FRAME {currentIndex + 1} / {images.length}</span>
+          <span className="font-inter text-[8px] tracking-[0.4em] text-white/80 uppercase block">STILL FRAME {currentIndex + 1} / {images.length}</span>
           <h4 className="font-cinzel text-xs md:text-sm tracking-[0.2em] text-white uppercase">{currentImage.title || "Untitled Still"}</h4>
         </div>
         <button 
           onClick={onClose}
-          className="pointer-events-auto p-2 text-white/50 hover:text-white hover:rotate-90 transition-all duration-500"
+          className="pointer-events-auto p-2 text-white/80 hover:text-white hover:rotate-90 transition-all duration-500"
           aria-label="Close lightbox"
         >
           <X size={32} strokeWidth={1} />
@@ -143,21 +145,21 @@ const Lightbox = ({
 
         <button 
           onClick={(e) => { e.stopPropagation(); onPrev(); }}
-          className="absolute left-0 top-1/2 -translate-y-1/2 p-4 text-white/20 hover:text-white hover:translate-x-[-10px] transition-all duration-500 hidden md:block"
+          className="absolute left-0 top-1/2 -translate-y-1/2 p-4 text-white/40 hover:text-white hover:translate-x-[-10px] transition-all duration-500 hidden md:block"
           aria-label="Previous image"
         >
           <ChevronLeft size={64} strokeWidth={0.5} />
         </button>
         <button 
           onClick={(e) => { e.stopPropagation(); onNext(); }}
-          className="absolute right-0 top-1/2 -translate-y-1/2 p-4 text-white/20 hover:text-white hover:translate-x-[10px] transition-all duration-500 hidden md:block"
+          className="absolute right-0 top-1/2 -translate-y-1/2 p-4 text-white/40 hover:text-white hover:translate-x-[10px] transition-all duration-500 hidden md:block"
           aria-label="Next image"
         >
           <ChevronRight size={64} strokeWidth={0.5} />
         </button>
       </div>
 
-      <div className="absolute bottom-12 font-inter text-[8px] tracking-[0.8em] text-white/20 uppercase">
+      <div className="absolute bottom-12 font-inter text-[8px] tracking-[0.8em] text-white/40 uppercase">
         SCROLL TO NAVIGATE
       </div>
     </motion.div>
@@ -207,7 +209,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ work, activeTab, index, o
       onMouseLeave={handleMouseLeave}
       onClick={() => onItemClick(work, index)}
       style={{ perspective: 1200 }}
-      className={`group relative overflow-hidden bg-zinc-950 cursor-none mb-10 block
+      className={`group relative overflow-hidden bg-zinc-950 cursor-pointer mb-10 block
         ${activeTab === 'video' ? (isWide ? 'md:col-span-2 aspect-[21/9]' : 'aspect-video') : 'break-inside-avoid mb-8'}`}
     >
       <motion.div
@@ -229,8 +231,8 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ work, activeTab, index, o
           {activeTab === 'video' && (
             <>
               <div className="flex items-center gap-4">
-                {(work.category || work.title) && <span className="h-[1px] w-8 bg-white/40" />}
-                <p className="font-inter text-[9px] tracking-[0.4em] uppercase text-white/60">{work.category}</p>
+                {(work.category || work.title) && <span className="h-[1px] w-8 bg-white" />}
+                <p className="font-inter text-[9px] tracking-[0.4em] uppercase text-white">{work.category}</p>
               </div>
               <h3 className="font-cinzel text-lg md:text-2xl tracking-[0.2em] uppercase text-white leading-tight">
                 {work.title}
@@ -293,25 +295,25 @@ const Portfolio: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           <header className="mb-24 md:mb-40 grid grid-cols-1 lg:grid-cols-2 items-end gap-12">
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1.2 }}>
-              <span className="font-inter text-[10px] md:text-xs tracking-[0.6em] text-zinc-600 uppercase mb-6 block">SELECTED WORKS</span>
-              <h1 className="font-cinzel text-4xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] uppercase">
+              <span className="font-inter text-[10px] md:text-xs tracking-[0.6em] text-white uppercase mb-6 block">SELECTED WORKS</span>
+              <h1 className="font-cinzel text-4xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] uppercase text-white">
                 GALLERY <br />
-                OF <span className="italic opacity-50">STORY</span>
+                OF <span className="italic opacity-80">STORY</span>
               </h1>
             </motion.div>
 
             <motion.div className="flex lg:justify-end">
-              <nav className="flex gap-12 border-b border-zinc-900 pb-4" aria-label="Portfolio filters">
+              <nav className="flex gap-12 border-b border-white/20 pb-4" aria-label="Portfolio filters">
                 <button 
                   onClick={() => setActiveTab('video')}
-                  className={`group flex items-center gap-4 font-cinzel tracking-[0.4em] text-[10px] md:text-xs transition-colors duration-500 ${activeTab === 'video' ? 'text-white' : 'text-zinc-600'}`}
+                  className={`group flex items-center gap-4 font-cinzel tracking-[0.4em] text-[10px] md:text-xs transition-colors duration-500 ${activeTab === 'video' ? 'text-white' : 'text-white/40'}`}
                 >
                   FILMS
                   {activeTab === 'video' && <motion.div layoutId="tab-underline" className="h-[1px] w-8 bg-white" />}
                 </button>
                 <button 
                   onClick={() => setActiveTab('picture')}
-                  className={`group flex items-center gap-4 font-cinzel tracking-[0.4em] text-[10px] md:text-xs transition-colors duration-500 ${activeTab === 'picture' ? 'text-white' : 'text-zinc-600'}`}
+                  className={`group flex items-center gap-4 font-cinzel tracking-[0.4em] text-[10px] md:text-xs transition-colors duration-500 ${activeTab === 'picture' ? 'text-white' : 'text-white/40'}`}
                 >
                   STILLS
                   {activeTab === 'picture' && <motion.div layoutId="tab-underline" className="h-[1px] w-8 bg-white" />}
@@ -348,16 +350,16 @@ const Portfolio: React.FC = () => {
             )}
           </AnimatePresence>
 
-          <footer className="mt-40 pt-20 border-t border-zinc-900 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+          <footer className="mt-40 pt-20 border-t border-white/10 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
             <div className="text-center md:text-left">
-              <p className="font-inter text-[10px] tracking-[0.4em] text-zinc-500 uppercase mb-8">HAVE A VISION?</p>
-              <motion.a href="#/booking" className="font-cinzel text-xl md:text-3xl tracking-[0.2em] uppercase flex items-center justify-center md:justify-start gap-6 group">
+              <p className="font-inter text-[10px] tracking-[0.4em] text-white uppercase mb-8">HAVE A VISION?</p>
+              <Link to="/booking" className="font-cinzel text-xl md:text-3xl tracking-[0.2em] uppercase flex items-center justify-center md:justify-start gap-6 group text-white">
                 LET'S FILM IT <ArrowRight className="group-hover:translate-x-4 transition-transform duration-500" />
-              </motion.a>
+              </Link>
             </div>
             <div className="text-center md:text-right">
-              <p className="font-inter text-[10px] tracking-[0.4em] text-zinc-500 uppercase mb-8">WANT MORE FILMS?</p>
-              <motion.a href="https://www.youtube.com/@DynamicYomiFilms" target="_blank" rel="noopener noreferrer" className="font-cinzel text-xl md:text-3xl tracking-[0.1em] uppercase flex items-center justify-center md:justify-end gap-6 group text-white/80">
+              <p className="font-inter text-[10px] tracking-[0.4em] text-white uppercase mb-8">WANT MORE FILMS?</p>
+              <motion.a href="https://www.youtube.com/@DynamicYomiFilms" target="_blank" rel="noopener noreferrer" className="font-cinzel text-xl md:text-3xl tracking-[0.1em] uppercase flex items-center justify-center md:justify-end gap-6 group text-white">
                 <Youtube className="group-hover:scale-110 transition-transform duration-500 text-[#FF0000]" size={32} />
                 WATCH ON YOUTUBE
               </motion.a>

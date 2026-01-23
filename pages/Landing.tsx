@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -75,19 +74,6 @@ const Landing: React.FC = () => {
         {/* Overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-1 pointer-events-none" />
         
-        {/* Corner Metadata */}
-        <div className="absolute top-12 right-8 md:right-12 z-20 hidden md:block text-right">
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 0.6, x: 0 }}
-            transition={{ delay: 2.2, duration: 1 }}
-            className="flex flex-col gap-1"
-          >
-            <span className="font-inter text-[8px] tracking-[0.5em] uppercase text-white/60">Current Status</span>
-            <span className="font-cinzel text-[10px] tracking-[0.2em] uppercase text-white/60">Accepting COMMISSIONS</span>
-          </motion.div>
-        </div>
-
         {/* Main Branding */}
         <div className="z-10 text-center px-6">
           <motion.div
@@ -96,14 +82,14 @@ const Landing: React.FC = () => {
             transition={{ duration: 2, ease: "easeOut" }}
             className="mb-6 flex justify-center"
           >
-             <div className="w-12 h-[1px] bg-white/40" />
+             <div className="w-12 h-[1px] bg-white" />
           </motion.div>
 
-          <h1 className="font-cinzel text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-[0.1em] select-none text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] flex flex-col items-center">
-            <CharReveal text="DYNAMIC" delay={0.5} />
+          <h1 className="font-cinzel text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-[0.1em] select-none text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] flex flex-col items-center uppercase leading-tight">
+            <CharReveal text="YOUR STORY" delay={0.5} />
             <div className="flex items-center gap-4 md:gap-8 -mt-2 md:-mt-4">
-              <CharReveal text="YOMI" delay={1.2} className="italic opacity-80" />
-              <CharReveal text="FILMS" delay={1.8} />
+              <CharReveal text="IN EVERY" delay={1.2} className="italic opacity-90" />
+              <CharReveal text="FRAME" delay={1.8} />
             </div>
           </h1>
 
@@ -115,11 +101,11 @@ const Landing: React.FC = () => {
           >
             <Link
               to="/portfolio"
-              className="group relative inline-flex items-center gap-6 px-16 py-5 border border-white/20 text-white font-cinzel tracking-[0.6em] text-[9px] md:text-xs overflow-hidden transition-all duration-700 hover:text-black hover:border-white shadow-2xl"
+              className="group relative inline-flex items-center gap-6 px-16 py-5 border border-white text-white font-cinzel tracking-[0.6em] text-[9px] md:text-xs overflow-hidden transition-all duration-700 hover:text-black hover:border-white shadow-2xl"
               aria-label="Explore the film archives"
             >
               <span className="relative z-10">EXPLORE ARCHIVES</span>
-              <div className="w-8 h-[1px] bg-white/60 group-hover:bg-black/40 group-hover:w-12 transition-all relative z-10" />
+              <div className="w-8 h-[1px] bg-white group-hover:bg-black group-hover:w-12 transition-all relative z-10" />
               <motion.div
                 className="absolute inset-0 bg-white -translate-x-full"
                 whileHover={{ translateX: 0 }}

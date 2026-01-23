@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -15,67 +14,6 @@ import Booking from './pages/Booking.tsx';
 // Components
 import Navbar from './components/Navbar.tsx';
 import Footer from './components/Footer.tsx';
-
-const CustomCursor = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
-
-  useEffect(() => {
-    const onMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-    };
-    
-    const onMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.closest('button, a, input, select, textarea')) {
-        setIsHovering(true);
-      } else {
-        setIsHovering(false);
-      }
-    };
-
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('mouseover', onMouseOver);
-    return () => {
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('mouseover', onMouseOver);
-    };
-  }, []);
-
-  return (
-    <>
-      <motion.div
-        className="fixed top-0 left-0 w-1 h-1 bg-white rounded-full pointer-events-none z-[9999] mix-blend-difference"
-        animate={{ 
-          x: position.x - 2, 
-          y: position.y - 2,
-          scale: isHovering ? 4 : 1
-        }}
-        transition={{ 
-          type: 'spring', 
-          damping: 25, 
-          stiffness: 600, 
-          mass: 0.2 
-        }}
-      />
-      <motion.div
-        className="fixed top-0 left-0 w-3 h-3 border border-white/30 rounded-full pointer-events-none z-[9998]"
-        animate={{ 
-          x: position.x - 6, 
-          y: position.y - 6,
-          scale: isHovering ? 2 : 1,
-          opacity: isHovering ? 0 : 1
-        }}
-        transition={{ 
-          type: 'spring', 
-          damping: 30, 
-          stiffness: 400, 
-          mass: 0.4 
-        }}
-      />
-    </>
-  );
-};
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -109,7 +47,6 @@ const App: React.FC = () => {
     <HelmetProvider>
       <Router>
         <div className="min-h-screen flex flex-col relative select-none">
-          <CustomCursor />
           <Navbar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
           
           <main className="flex-grow flex flex-col" id="main-content">
