@@ -115,7 +115,7 @@ const Landing: React.FC = () => {
             />
           </h1>
 
-          <div className="flex flex-col items-center mt-16 md:mt-24 gap-8">
+          <div className="flex flex-col items-center mt-16 md:mt-24 gap-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -134,14 +134,18 @@ const Landing: React.FC = () => {
             <motion.a
               href="tel:+18183008848"
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.6 }}
-              whileHover={{ opacity: 1, scale: 1.02 }}
+              animate={{ opacity: 0.95 }}
+              whileHover={{ opacity: 1, scale: 1.05 }}
               transition={{ delay: 4.5, duration: 1 }}
-              className="group flex items-center gap-3 text-white font-inter text-[8px] md:text-[9px] tracking-[0.5em] uppercase transition-all"
+              className="group flex flex-col items-center gap-2 text-white font-inter transition-all"
             >
-              <Phone size={10} className="text-white/40 group-hover:text-white transition-colors" />
-              <span>DIRECT LINE: +1 818 300 8848</span>
-              <div className="w-0 group-hover:w-4 h-[1px] bg-white transition-all duration-500" />
+              <div className="flex items-center gap-3">
+                <Phone size={14} className="text-white/60 group-hover:text-white transition-colors" />
+                <span className="text-[10px] md:text-xs font-semibold tracking-[0.4em] uppercase">
+                  DIRECT LINE: +1 818 300 8848
+                </span>
+              </div>
+              <div className="w-12 group-hover:w-24 h-[1px] bg-white/30 group-hover:bg-white transition-all duration-700" />
             </motion.a>
           </div>
         </div>
