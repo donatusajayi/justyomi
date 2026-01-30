@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { Phone } from 'lucide-react';
 
 const CharReveal = ({ text, delay = 0, className = "" }: { text: string; delay?: number; className?: string }) => {
   return (
@@ -114,21 +115,35 @@ const Landing: React.FC = () => {
             />
           </h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 3.5, duration: 1.5 }}
-            className="mt-16 md:mt-24"
-          >
-            <Link
-              to="/booking"
-              className="group relative inline-flex items-center gap-8 px-14 py-5 bg-white text-black font-cinzel tracking-[0.6em] text-[9px] md:text-[11px] overflow-hidden transition-all duration-500 hover:scale-105 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white"
-              aria-label="Book your cinematic experience"
+          <div className="flex flex-col items-center mt-16 md:mt-24 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 3.5, duration: 1.5 }}
             >
-              <span className="relative z-10">BOOK NOW</span>
-              <div className="w-8 h-[1px] bg-black group-hover:w-12 transition-all duration-500 relative z-10" />
-            </Link>
-          </motion.div>
+              <Link
+                to="/booking"
+                className="group relative inline-flex items-center gap-8 px-14 py-5 bg-white text-black font-cinzel tracking-[0.6em] text-[9px] md:text-[11px] overflow-hidden transition-all duration-500 hover:scale-105 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white"
+                aria-label="Book your cinematic experience"
+              >
+                <span className="relative z-10">BOOK NOW</span>
+                <div className="w-8 h-[1px] bg-black group-hover:w-12 transition-all duration-500 relative z-10" />
+              </Link>
+            </motion.div>
+
+            <motion.a
+              href="tel:+18183008848"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.6 }}
+              whileHover={{ opacity: 1, scale: 1.02 }}
+              transition={{ delay: 4.5, duration: 1 }}
+              className="group flex items-center gap-3 text-white font-inter text-[8px] md:text-[9px] tracking-[0.5em] uppercase transition-all"
+            >
+              <Phone size={10} className="text-white/40 group-hover:text-white transition-colors" />
+              <span>DIRECT LINE: +1 818 300 8848</span>
+              <div className="w-0 group-hover:w-4 h-[1px] bg-white transition-all duration-500" />
+            </motion.a>
+          </div>
         </div>
 
         {/* Minimal Scroll Indicator */}

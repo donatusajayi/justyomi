@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
   const isLanding = location.pathname === '/';
 
   return (
-    <footer className={`w-full py-8 text-center text-[10px] md:text-xs tracking-[0.3em] text-gray-500 font-inter uppercase ${isLanding ? 'fixed bottom-0 left-0' : 'relative mt-auto bg-black'}`}>
+    <footer className={`w-full py-8 text-center text-[10px] md:text-xs tracking-[0.4em] text-white/60 font-inter uppercase ${isLanding ? 'fixed bottom-0 left-0 z-10' : 'relative mt-auto bg-black'}`}>
       <div className="container mx-auto px-4">
         &copy; {new Date().getFullYear()} DYNAMIC YOMI FILMS. ALL RIGHTS RESERVED.
       </div>
