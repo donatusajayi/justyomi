@@ -100,11 +100,11 @@ const Landing: React.FC = () => {
             className="mt-16 md:mt-20"
           >
             <Link
-              to="/portfolio"
+              to="/booking"
               className="group relative inline-flex items-center gap-6 px-16 py-5 border border-white text-white font-cinzel tracking-[0.6em] text-[9px] md:text-xs overflow-hidden transition-all duration-700 hover:text-black hover:border-white shadow-2xl"
-              aria-label="Explore the film archives"
+              aria-label="Book your cinematic experience"
             >
-              <span className="relative z-10">EXPLORE ARCHIVES</span>
+              <span className="relative z-10">BOOK NOW</span>
               <div className="w-8 h-[1px] bg-white group-hover:bg-black group-hover:w-12 transition-all relative z-10" />
               <motion.div
                 className="absolute inset-0 bg-white -translate-x-full"
