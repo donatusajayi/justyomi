@@ -122,17 +122,11 @@ const Landing: React.FC = () => {
           >
             <Link
               to="/booking"
-              className="group relative inline-flex items-center gap-8 px-14 py-5 border border-white/60 text-white font-cinzel tracking-[0.6em] text-[9px] md:text-[11px] overflow-hidden transition-all duration-700 hover:text-black hover:border-white shadow-xl bg-black/10 backdrop-blur-[2px]"
+              className="group relative inline-flex items-center gap-8 px-14 py-5 bg-white text-black font-cinzel tracking-[0.6em] text-[9px] md:text-[11px] overflow-hidden transition-all duration-500 hover:scale-105 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white"
               aria-label="Book your cinematic experience"
             >
               <span className="relative z-10">BOOK NOW</span>
-              <div className="w-8 h-[1px] bg-white/60 group-hover:bg-black group-hover:w-12 transition-all relative z-10" />
-              <motion.div
-                className="absolute inset-0 bg-white"
-                initial={{ x: "-100%" }}
-                whileHover={{ x: 0 }}
-                transition={{ type: 'tween', ease: [0.19, 1, 0.22, 1], duration: 0.8 }}
-              />
+              <div className="w-8 h-[1px] bg-black group-hover:w-12 transition-all duration-500 relative z-10" />
             </Link>
           </motion.div>
         </div>
