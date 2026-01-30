@@ -111,6 +111,10 @@ const Booking: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div>
+                <label className={labelClasses}>PHONE NUMBER</label>
+                <input type="tel" name="phone" required placeholder="+1 (000) 000-0000" className={inputClasses} />
+              </div>
+              <div>
                 <label className={labelClasses}>SERVICE TYPE</label>
                 <select name="service" required className={`${inputClasses} appearance-none cursor-pointer bg-black text-white`}>
                   <option value="wedding" className="bg-black">WEDDING CINEMATOGRAPHY</option>
@@ -118,21 +122,23 @@ const Booking: React.FC = () => {
                   <option value="other" className="bg-black">OTHER CREATIVE WORK</option>
                 </select>
               </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div>
                 <label className={labelClasses}>EVENT DATE</label>
                 <input type="date" name="date" required className={`${inputClasses} [color-scheme:dark]`} />
               </div>
-            </div>
-
-            <div>
-              <label className={labelClasses}>LOCATION</label>
-              <input 
-                type="text"
-                name="location" 
-                required 
-                placeholder="WHERE IS THE PROJECT LOCATED?" 
-                className={inputClasses}
-              />
+              <div>
+                <label className={labelClasses}>LOCATION</label>
+                <input 
+                  type="text"
+                  name="location" 
+                  required 
+                  placeholder="WHERE IS THE PROJECT LOCATED?" 
+                  className={inputClasses}
+                />
+              </div>
             </div>
 
             {error && <p className="text-red-500 font-inter text-[10px] tracking-widest text-center">{error}</p>}
