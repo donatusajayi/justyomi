@@ -64,7 +64,6 @@ const LockoutOverlay = () => (
       </div>
 
       <div className="mt-12 flex flex-col items-center gap-4">
-        <span className="font-inter text-[8px] tracking-[0.8em] text-white uppercase">DYNAMIC YOMI FILMS</span>
         <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent" />
       </div>
     </motion.div>
