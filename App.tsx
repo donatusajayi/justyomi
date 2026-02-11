@@ -41,30 +41,29 @@ const AnimatedRoutes = () => {
 };
 
 const LockoutOverlay = () => (
-  <div className="fixed inset-0 z-[10000] bg-black flex flex-col items-center justify-center p-8 text-center select-none cursor-default">
+  <div className="fixed inset-0 z-[10000] bg-white flex flex-col items-center justify-center p-8 text-center select-none cursor-default">
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1.5, ease: "easeOut" }}
       className="flex flex-col items-center gap-12"
     >
-      <div className="w-16 h-16 border border-white rounded-full flex items-center justify-center">
-        <AlertCircle size={32} className="text-white" strokeWidth={1} />
+      <div className="w-16 h-16 border border-black rounded-full flex items-center justify-center">
+        <AlertCircle size={32} className="text-black" strokeWidth={1} />
       </div>
       
       <div className="space-y-6">
-        <h1 className="font-cinzel text-xl md:text-3xl tracking-[0.6em] text-white uppercase leading-relaxed">
-          Service <span className="italic text-white">Suspended</span>
+        <h1 className="font-cinzel text-xl md:text-3xl tracking-[0.6em] text-black uppercase leading-relaxed">
+          Service <span className="italic text-black">Suspended</span>
         </h1>
-        <div className="w-12 h-[1px] bg-white mx-auto" />
-        <p className="font-inter text-[10px] md:text-xs tracking-[0.4em] text-white uppercase max-w-md mx-auto leading-loose">
-          This website is currently offline. <br /> 
+        <div className="w-12 h-[1px] bg-black mx-auto" />
+        <p className="font-inter text-[10px] md:text-xs tracking-[0.4em] text-black uppercase max-w-md mx-auto leading-loose">
           Please contact the webmaster for assistance.
         </p>
       </div>
 
       <div className="mt-12 flex flex-col items-center gap-4">
-        <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent" />
+        <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-black to-transparent" />
       </div>
     </motion.div>
   </div>
