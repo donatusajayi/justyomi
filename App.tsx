@@ -48,24 +48,24 @@ const LockoutOverlay = () => (
       transition={{ duration: 1.5, ease: "easeOut" }}
       className="flex flex-col items-center gap-12"
     >
-      <div className="w-16 h-16 border border-white/20 rounded-full flex items-center justify-center">
-        <AlertCircle size={32} className="text-white/40" strokeWidth={1} />
+      <div className="w-16 h-16 border border-white rounded-full flex items-center justify-center">
+        <AlertCircle size={32} className="text-white" strokeWidth={1} />
       </div>
       
       <div className="space-y-6">
         <h1 className="font-cinzel text-xl md:text-3xl tracking-[0.6em] text-white uppercase leading-relaxed">
-          Service <span className="opacity-50 italic text-white/60">Suspended</span>
+          Service <span className="italic text-white">Suspended</span>
         </h1>
-        <div className="w-12 h-[1px] bg-white/20 mx-auto" />
-        <p className="font-inter text-[10px] md:text-xs tracking-[0.4em] text-white/60 uppercase max-w-md mx-auto leading-loose">
+        <div className="w-12 h-[1px] bg-white mx-auto" />
+        <p className="font-inter text-[10px] md:text-xs tracking-[0.4em] text-white uppercase max-w-md mx-auto leading-loose">
           This website is currently offline. <br /> 
           Please contact the webmaster for assistance.
         </p>
       </div>
 
       <div className="mt-12 flex flex-col items-center gap-4">
-        <span className="font-inter text-[8px] tracking-[0.8em] text-white/20 uppercase">DYNAMIC YOMI FILMS</span>
-        <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <span className="font-inter text-[8px] tracking-[0.8em] text-white uppercase">DYNAMIC YOMI FILMS</span>
+        <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent" />
       </div>
     </motion.div>
   </div>
