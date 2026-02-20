@@ -1,8 +1,7 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, AlertCircle } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { HelmetProvider } from 'react-helmet-async';
 
 // Pages
@@ -40,49 +39,14 @@ const AnimatedRoutes = () => {
   );
 };
 
-const LockoutOverlay = () => (
-  <div className="fixed inset-0 z-[10000] bg-white flex flex-col items-center justify-center p-8 text-center select-none cursor-default">
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 1.5, ease: "easeOut" }}
-      className="flex flex-col items-center gap-12"
-    >
-      <div className="w-16 h-16 border border-black rounded-full flex items-center justify-center">
-        <AlertCircle size={32} className="text-black" strokeWidth={1} />
-      </div>
-      
-      <div className="space-y-6">
-        <h1 className="font-cinzel text-xl md:text-3xl tracking-[0.6em] text-black uppercase leading-relaxed">
-          Service <span className="italic text-black">Suspended</span>
-        </h1>
-        <div className="w-12 h-[1px] bg-black mx-auto" />
-        <p className="font-inter text-[10px] md:text-xs tracking-[0.4em] text-black uppercase max-w-md mx-auto leading-loose">
-          Please contact the webmaster for assistance.
-        </p>
-      </div>
-
-      <div className="mt-12 flex flex-col items-center gap-4">
-        <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-black to-transparent" />
-      </div>
-    </motion.div>
-  </div>
-);
-
 const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
-  // Set this to true to activate the lockout screen
-  const isSuspended = true; 
-
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <HelmetProvider>
       <Router>
         <div className="min-h-screen flex flex-col relative select-none">
-          {isSuspended && <LockoutOverlay />}
-          
           <Navbar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
           
           <main className="flex-grow flex flex-col" id="main-content">
@@ -92,7 +56,7 @@ const App: React.FC = () => {
           <Footer />
 
           <AnimatePresence>
-            {isMenuOpen && !isSuspended && (
+            {isMenuOpen && (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
